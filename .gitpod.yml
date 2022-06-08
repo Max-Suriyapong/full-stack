@@ -1,9 +1,15 @@
 
-tasks:
-  - init:  npm install && npm run build
-    command: |
-      npm run dev
 
+tasks:
+  - init:  |
+    npm install
+    npm uninstall node-pre-gyp 
+    npm install @mapbox/node-pre-gyp
+
+
+  command:|
+      export HMR_HOST=`gp url 3000`
+      npm run dev
 
 ports:
   - port: 3000
@@ -12,7 +18,7 @@ ports:
     
 vscode:
   extensions:
-    - svelte.svelte-vscode
+    - svelte.svelte-vscode 
 
 github:
   prebuilds:
